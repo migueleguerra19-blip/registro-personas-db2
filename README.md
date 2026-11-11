@@ -53,7 +53,7 @@ sw.js                             Caché de la interfaz
 
    Revisa el proyecto de destino antes de confirmar el despliegue. La función protegida usa el cliente de servidor de Supabase; su llave de servidor permanece en el entorno protegido y nunca se publica en Pages, GitHub ni `config.js`.
 5. Habilita Supabase Auth para correo y contraseña. En **Authentication → URL Configuration**, agrega la URL del sitio Pages (`https://migueleguerra19-blip.github.io/registro-personas-db2/`) a las URL de redirección. La página permite crear la cuenta que será propietaria de sus registros.
-6. Abre **Conexión** en la página e ingresa URL y clave `anon`. La clave `anon` es pública; los registros se limitan en la API y en la base de datos mediante RLS.
+6. La página incluye la URL y clave pública `publishable` del proyecto en `config.js`. Esa clave está diseñada para aparecer en el frontend; nunca publiques una clave `secret`/`service_role`. Los registros se limitan mediante la Edge Function autenticada y las políticas RLS.
 
 El formulario de contraseña de cada persona se envía por HTTPS a la función `personas`; allí se genera un hash Argon2id con sal aleatoria y parámetros `m=65536,t=3,p=1`. El endpoint comprueba el usuario autenticado y filtra toda operación por su ID. La tabla no concede acceso directo a `anon` ni a `authenticated`.
 
@@ -61,7 +61,7 @@ El formulario de contraseña de cada persona se envía por HTTPS a la función `
 
 1. Crea un repositorio público llamado `registro-personas-db2` en la cuenta `migueleguerra19-blip` y sube el contenido de esta carpeta a la rama `main`.
 2. En **Settings → Pages**, selecciona **GitHub Actions** como fuente.
-3. Para conectar automáticamente el sitio publicado, agrega las variables de repositorio `SUPABASE_URL` y `SUPABASE_ANON_KEY` en **Settings → Secrets and variables → Actions → Variables**. Son la URL del proyecto y la clave pública `anon`; no agregues la llave `service_role` ahí.
+3. `config.js` contiene únicamente la URL del proyecto y su clave pública `publishable`; la llave `secret`/`service_role` no forma parte del sitio.
 4. El workflow `.github/workflows/pages.yml` publicará el sitio en `https://migueleguerra19-blip.github.io/registro-personas-db2/` después de cada cambio en `main`.
 
 GitHub Pages ofrece hosting gratuito desde repositorios públicos con GitHub Free. El sitio publicado es público, pero la base de datos requiere inicio de sesión y los registros están limitados a la cuenta autenticada.

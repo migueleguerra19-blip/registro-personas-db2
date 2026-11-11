@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "Registro de personas · Base de Datos II",
+  "short_name": "Registro Personas",
+  "description": "CRUD académico de personas para Base de Datos II.",
+  "lang": "es-CO",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#315eea",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
