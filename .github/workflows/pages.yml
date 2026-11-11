@@ -26,24 +26,13 @@ jobs:
       - name: Configurar Pages
         uses: actions/configure-pages@v5
       - name: Preparar sitio y configuración pública
-        env:
-          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
         run: |
           mkdir _site
           cp index.html styles.css app.js _site/
-          cp manifest.webmanifest sw.js _site/
+          cp manifest.webmanifest sw.js config.js _site/
           mkdir _site/icons
           cp icons/icon.svg _site/icons/
           touch _site/.nojekyll
-          node - <<'NODE'
-          const fs = require('node:fs');
-          const config = {
-            url: process.env.SUPABASE_URL || '',
-            anonKey: process.env.SUPABASE_ANON_KEY || '',
-          };
-          fs.writeFileSync('_site/config.js', `window.APP_CONFIG = ${JSON.stringify(config)};\n`);
-          NODE
       - name: Subir artefacto Pages
         uses: actions/upload-pages-artifact@v3
         with:

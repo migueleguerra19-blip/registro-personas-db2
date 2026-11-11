@@ -109,9 +109,9 @@
     <dialog id="settingsDialog" class="dialog" aria-labelledby="settingsTitle">
       <form id="settingsForm" class="dialog-content" novalidate>
         <div class="dialog-heading"><div><p class="eyebrow">POSTGRESQL · BAAS</p><h2 id="settingsTitle">Conectar Supabase</h2></div><button class="icon-button" type="button" data-close="settingsDialog" aria-label="Cerrar">×</button></div>
-        <p class="dialog-intro">Usa la URL del proyecto y su clave pública <code>anon</code>. La clave <code>service_role</code> nunca debe ir en esta página.</p>
+        <p class="dialog-intro">Usa la URL y la clave pública (<code>publishable</code> o <code>anon</code>). Una clave <code>secret</code> o <code>service_role</code> nunca debe ir en esta página.</p>
         <label class="field"><span>URL del proyecto</span><input id="supabaseUrl" type="url" placeholder="https://tu-proyecto.supabase.co" autocomplete="url" /></label>
-        <label class="field"><span>Clave pública anon</span><input id="supabaseAnonKey" type="password" placeholder="eyJ…" autocomplete="off" /></label>
+        <label class="field"><span>Clave pública</span><input id="supabaseAnonKey" type="password" placeholder="sb_publishable_… o anon" autocomplete="off" /></label>
         <div class="settings-help"><strong>Antes de conectar</strong><ol><li>Ejecuta <code>supabase/schema.sql</code> en el SQL Editor del proyecto.</li><li>Despliega la función <code>personas</code>; Supabase protege la llave del servidor dentro de la función.</li><li>Activa registro de cuentas en Supabase Auth.</li></ol></div>
         <p id="settingsError" class="form-error" role="alert" hidden></p>
         <div class="dialog-actions"><button id="disconnectButton" class="button button-quiet danger-text" type="button">Usar modo local</button><button class="button button-primary" type="submit">Conectar</button></div>

@@ -1,6 +1,5 @@
-// Copia este archivo como config.js solo si quieres precargar valores públicos.
-// También puedes ingresar URL y anon key en el botón "Conexión" de la página.
-// Nunca pongas aquí SUPABASE_SERVICE_ROLE_KEY ni contraseñas de base de datos.
+// Ejemplo local. config.js contiene solo la URL y la clave pública del proyecto.
+// Nunca pongas aquí una clave secret/service_role ni contraseñas de base de datos.
 window.APP_CONFIG = {
   url: "",
   anonKey: "",

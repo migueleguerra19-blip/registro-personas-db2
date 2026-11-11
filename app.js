@@ -325,7 +325,7 @@ async function saveSettings(event) {
   const anonKey = $("#supabaseAnonKey").value.trim();
   const errorNode = $("#settingsError");
   if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url) || anonKey.length < 20) {
-    errorNode.textContent = "Revisa la URL y la clave pública anon del proyecto Supabase.";
+    errorNode.textContent = "Revisa la URL y la clave pública (publishable/anon) del proyecto Supabase.";
     errorNode.hidden = false;
     return;
   }
