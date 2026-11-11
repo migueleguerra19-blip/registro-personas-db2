@@ -2,7 +2,7 @@ name: Publicar en GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, "feature/registro-personas-db2"]
   workflow_dispatch:
 
 permissions:
