@@ -1,0 +1,4 @@
+project_id = "registro-personas-db2"
+
+[functions.personas]
+verify_jwt = true
